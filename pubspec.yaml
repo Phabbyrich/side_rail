@@ -1,7 +1,8 @@
 name: side_rail
-description: A new Flutter package project.
+description: Navigation Side Rail.
 version: 0.0.1
-homepage:
+homepage: https://github.com/Phabbyrich/side_rail
+repository: https://github.com/Phabbyrich/side_rail
 
 environment:
   sdk: '>=3.1.2 <4.0.0'
