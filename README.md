@@ -1,4 +1,3 @@
-Creating fun and spicy documentation can make your Flutter package more engaging for developers. Here's a playful and spicy way to introduce your `SideRail` package:
 
 ---
 
