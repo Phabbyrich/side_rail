@@ -78,5 +78,3 @@ Get your users dancing to the rhythm of your app with SideRail. Your Flutter app
 Let the good times roll with SideRail! Happy coding! 🚀
 
 ---
-
-Feel free to modify and enhance this documentation to make it even spicier for your package users. Good luck with your Flutter package, and may it add that extra flavor to your projects! 🌶️💃
