@@ -5,7 +5,7 @@
 
 Welcome to SideRail, the sizzling-hot Flutter package that will take your app's navigation to the next level! 🚀
 
-![SideRail](https://yourwebsite.com/images/siderail_demo.gif)
+![SideRail](https://github.com/Phabbyrich/side_rail/blob/main/preview.png)
 
 ## What's SideRail, you ask?
 
