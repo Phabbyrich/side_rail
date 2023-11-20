@@ -206,6 +206,11 @@ class _DestinationItem extends StatelessWidget {
 
     final unselectedColor =
         item.unselectedColor ?? unSelectedColor ?? Colors.grey;
+
+    final index = items
+        .where((element) => !element.isSectionHeader)
+        .toList()
+        .indexOf(item);
     return item.isSectionHeader
         ? Visibility(
             visible: expanded,
@@ -237,16 +242,16 @@ class _DestinationItem extends StatelessWidget {
                   theme.primaryColor.withOpacity(.1),
               borderRadius: BorderRadius.circular(item.radius ?? 0),
               onTap: () async {
-                onTap?.call(items.indexOf(item));
+                onTap?.call(index);
 
-                await controller.scrollToIndex(items.indexOf(item),
+                await controller.scrollToIndex(index,
                     duration: const Duration(seconds: 1),
                     preferPosition: AutoScrollPosition.middle);
               },
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(item.radius ?? 0),
-                  color: items.indexOf(item) == selectedIndex
+                  color: index == selectedIndex
                       ? tileActiveColor ?? theme.primaryColor
                       : null,
                 ),
@@ -260,12 +265,12 @@ class _DestinationItem extends StatelessWidget {
                       children: [
                         IconTheme(
                           data: IconThemeData(
-                            color: items.indexOf(item) == selectedIndex
+                            color: index == selectedIndex
                                 ? selectedColor
                                 : unselectedColor,
                             size: item.iconSize ?? 18,
                           ),
-                          child: items.indexOf(item) == selectedIndex
+                          child: index == selectedIndex
                               ? item.activeIcon ?? item.icon
                               : item.icon,
                         ),
@@ -284,7 +289,7 @@ class _DestinationItem extends StatelessWidget {
                                   child: DefaultTextStyle(
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,
-                                    style: items.indexOf(item) == selectedIndex
+                                    style: index == selectedIndex
                                         ? selectedTextStyle ??
                                             Theme.of(context)
                                                 .textTheme
@@ -294,7 +299,7 @@ class _DestinationItem extends StatelessWidget {
                                                         item.textSize ?? 12,
                                                     fontWeight: FontWeight.bold,
                                                     color:
-                                                        items.indexOf(item) ==
+                                                        index ==
                                                                 selectedIndex
                                                             ? selectedColor
                                                             : unselectedColor)
@@ -303,7 +308,7 @@ class _DestinationItem extends StatelessWidget {
                                             .bodyMedium!
                                             .copyWith(
                                                 fontSize: item.textSize ?? 12,
-                                                color: items.indexOf(item) ==
+                                                color: index ==
                                                         selectedIndex
                                                     ? selectedColor
                                                     : unselectedColor),
@@ -313,11 +318,12 @@ class _DestinationItem extends StatelessWidget {
                                 // SizedBox(width: 15),
                                 IconTheme(
                                   data: IconThemeData(
-                                    color: items.indexOf(item) == selectedIndex
+                                    color: index == selectedIndex
                                         ? selectedColor
                                         : unselectedColor,
                                   ),
-                                  child: item.trailing ?? const SizedBox.shrink(),
+                                  child:
+                                      item.trailing ?? const SizedBox.shrink(),
                                 )
                               ],
                             ),
